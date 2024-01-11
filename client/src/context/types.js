@@ -1,0 +1,29 @@
+// register types
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const REG_HANDLE_CHANGE = "REG_HANDLE_CHANGE";
+export const REG_HANDLE_SUBMIT = "REG_HANDLE_SUBMIT";
+export const REG_CLEAR_STATE = "REG_CLEAR_STATE";
+export const REG_VALIDATE_FORM = "REG_VALIDATE_FORM";
+// login / logout types
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+// logout
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+// auth types
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAIL";
+//alert types
+export const ALERT_SUCCESS = "ALERT_SUCCESS";
+export const ALERT_CLOSE = "ALERT_CLOSE";
+export const ALERT_BAD_REQUEST = "ALERT_BAD_REQUEST";
+export const ALERT_UNAUTHORIZED_USER = "ALERT_UNAUTHORIZED_USER";
+export const ALERT_PASSWORD_NO_MATCH = "ALERT_PASSWORD_NO_MATCH";
+export const ALERT_PASSWORD_MATCH = "ALERT_PASSWORD_MATCH";
+// LOADING
+export const LOADING_ON = "LOADING_ON";
+export const LOADING_OFF = "LOADING_OFF";
+// CAR TYPES
+export const CAR_SUBMIT_SUCCESS = "CAR_SUBMIT_SUCCESS";
+export const CAR_SUBMIT_FAIL = "CAR_SUBMIT_FAIL";
+export const CLEAR_CAR_STATE = "CLEAR_CAR_STATE";

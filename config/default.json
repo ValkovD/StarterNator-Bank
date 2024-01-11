@@ -1,0 +1,6 @@
+{
+  "PORT": "4000",
+  "jwtSecret": "jwtSecret",
+  "MONGO_DB": "mongodb+srv://deyanvalkov:deyanvalkov123456789@starternatorbank.r75ow1w.mongodb.net/?retryWrites=true&w=majority",
+  "SECRET": "jwtSecret"
+}
