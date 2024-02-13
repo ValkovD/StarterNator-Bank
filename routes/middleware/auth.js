@@ -6,13 +6,12 @@ const config = require("config");
 function authUser(req, res, next) {
   const token = req.header("x-auth-token");
   // check if token in header
+
   if (!token) {
     return res.status(401).json([{ msg: "No token ccess DENIED !!!!" }]);
   }
   try {
     const decoded = jwt.verify(token, config.get("SECRET"));
-    console.log("from auth line 14", decoded);
-    console.log(req.userId);
     req.userId = decoded.id;
     next();
   } catch (err) {

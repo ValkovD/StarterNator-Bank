@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import React from "react";
 import UserPageNavbar from "../components/UserPageNavbar";
-import UserContext from "../context/user/UserContext";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 

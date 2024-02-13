@@ -28,12 +28,11 @@ carsRouter.get("/alternators", auth.authUser, carsController.getAllAlter);
 // @description       GET all starters
 // @acces             private
 carsRouter.get("/starters", auth.authUser, carsController.getAllStarter);
-// -BY FAULT-----------------------------
-// @cars/starters     GET api/cars/byfault?alternator=true
-//                        api/cars/byfault?starter=true
-// @description       GET all starters
+
+// @cars/search       GET api/cars/search/?make=......&model=....... ect
+// querry string used for easy passing to mongo db
 // @acces             private
-carsRouter.get("/byfault", auth.authUser, carsController.getByFault);
+carsRouter.get("/search", auth.authUser, carsController.getByDescription);
 // -------------------------------------
 
 // @cars/deletecar    DELETE api/cars/delete/:id

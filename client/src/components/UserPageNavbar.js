@@ -1,18 +1,16 @@
 import React, { useContext } from "react";
 
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "./img/starter.png";
 import Button from "react-bootstrap/Button";
-import LoginForm from "./LoginForm";
 import UserContext from "../context/user/UserContext";
 import Form from "react-bootstrap/Form";
 export default function UserPageNavbar() {
   const userContext = useContext(UserContext);
-  const { loginInput, logOut, user } = userContext;
+  const { logOut, user } = userContext;
   return (
     <Navbar expand="lg" className="bg-secondary">
       <Container className="justify-content-between">

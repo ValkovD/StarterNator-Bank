@@ -3,7 +3,6 @@ import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import UserReducer from "./UserReducer";
-import AlertContext from "../alert/AlertContext";
 import {
   REG_CLEAR_STATE,
   REGISTER_SUCCESS,

@@ -1,4 +1,4 @@
-import React, { Link } from "react";
+import React from "react";
 import Container from "react-bootstrap/esm/Container";
 import UnauthorizedPng from "../components/img/unauthorized.png";
 const Unauthorized = () => {

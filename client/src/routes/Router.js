@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import React, { useContext } from "react";
+import React from "react";
 import Root from "./Root";
 import ErrPage404 from "../pages/ErrPage404";
 import RegisterUser from "../routes/RegisterUser";
@@ -7,8 +7,6 @@ import Slider from "../components/Slider";
 import UserPageRoot from "./UserPageRoot";
 import UserPage from "../routes/UserPage";
 import Unauthorized from "../pages/Unauthorized";
-import UserLoggedOut from "../pages/UserLoggedOut";
-import UserContext from "../context/user/UserContext";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 const Router = createBrowserRouter([

@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 
 import AppNavbar from "../components/AppNavbar";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import AlertDism from "../components/AlertDism";
-import UserContext from "../context/user/UserContext";
 import Footer from "../components/Footer";
 
 const Root = () => {

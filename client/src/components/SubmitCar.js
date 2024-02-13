@@ -4,9 +4,6 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/esm/Container";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import UserContext from "../context/user/UserContext";
 import CarContext from "../context/car/CarContext";
 import AlertContext from "../context/alert/AlertContext";
@@ -29,7 +26,7 @@ const initialCarData = {
 };
 const SubmitCar = () => {
   const userContext = useContext(UserContext);
-  const { token, authUser } = userContext;
+  const { authUser } = userContext;
   const carContext = useContext(CarContext);
   const { submitCar, clearCarState, resStatus, resArray } = carContext;
   const alertContext = useContext(AlertContext);

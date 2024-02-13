@@ -197,7 +197,7 @@ function RegisterUserForm() {
           xs
           lg="2"
           className="mb-3"
-          // controlId="formGroupPassword"
+        // controlId="formGroupPassword"
         >
           <Form.Label>Repeat Password</Form.Label>
           <Form.Control

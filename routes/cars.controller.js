@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-
+const iterateObject = require("iterate-object");
 const bcrypt = require("bcryptjs");
 const Car = require("../models/Car");
 const User = require("../models/User");
@@ -125,16 +125,44 @@ async function getAllStarter(req, res) {
   }
 }
 // --------------------------------------
-// get cars by fault
-async function getByFault(req, res) {
-  if (req.query.fault !== "starter" && req.query.fault !== "alternator") {
-    return res.status(400).json([{ msg: "Bad query string" }]);
-  }
+// get cars by Description
+async function getByDescription(req, res) {
+
+  // if (req.query === null) {
+  //   return res.status(400).json([{ msg: "Bad query string" }]);
+  // }
+  let test = { year: { $gt: '1996', $lt: '1999' } };
+  let test2 = { make: 'renault' };
+  let test3 = { make: 'renault', year: { '$gte': '1996', '$lte': '1999' } };
+  // let searchQuerry = {}
   try {
-    // console.log(req.query);
-    // res.status(200).json({ msg: "it works" });
-    let byFault = await Car.find(req.query);
-    res.send(byFault);
+    // ======== Check The CLIENT query and format it for the Database Query======
+
+    let clientQuerry = req.query
+    console.log("clientQuerry", clientQuerry)
+    const yearRange = {}
+    iterateObject(clientQuerry, (value, key) => {
+      if (key === '$gte' || key === '$lte') {
+        yearRange[key] = value
+
+      }
+    });
+    if (Object.keys(yearRange).length >= 1) {
+      delete clientQuerry['$gte']
+      delete clientQuerry['$lte']
+      console.log("yearRangeDone", yearRange)
+      console.log("clientQuerry is now", clientQuerry)
+      clientQuerry = { ...clientQuerry, year: { ...yearRange } }
+      console.log("finalQuerry is ", clientQuerry)
+    }
+
+    //============================================================== 
+    let searchResult = await Car.find(clientQuerry);
+
+    if (!searchResult.length) {
+      return res.status(404).json([{ msg: "No cars Found" }])
+    }
+    res.send(searchResult);
   } catch (err) {
     console.error(err);
     res.status(500).json([{ msg: "Server error" }]);
@@ -146,5 +174,5 @@ module.exports = {
   getAllAlter,
   getAllStarter,
   deleteCar,
-  getByFault,
+  getByDescription,
 };
