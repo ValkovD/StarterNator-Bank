@@ -4,6 +4,8 @@ import {
   CLEAR_CAR_STATE,
   CAR_SEARCH_SUCCESS,
   CAR_SEARCH_FAIL,
+  CAR_DELETE_SUCCESS,
+  CAR_DELETE_FAIL
 } from "../types";
 
 export default (state, action) => {
@@ -38,6 +40,23 @@ export default (state, action) => {
         resArray: [...action.payload.data],
         resStatus: action.payload.status,
       };
+    case CAR_DELETE_SUCCESS:
+      const idToDel = action.payload.data[0].id
+      const newArr = state.resArray.filter((car) => {
+        return car._id !== idToDel
+      })
+      return {
+        deletedCarId: action.payload.data[0].id,
+        resArray: newArr,
+        resStatus: action.payload.status,
+      }
+    case CAR_DELETE_FAIL:
+      console.error(action.payload)
+      return {
+        deletedCarId: "",
+        resArray: state.resArray,
+        resStatus: state.resStatus
+      }
     case CLEAR_CAR_STATE:
       return {
         resArray: [],

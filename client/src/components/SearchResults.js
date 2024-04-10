@@ -1,8 +1,19 @@
-import React from 'react'
-import { CarCard } from './CarCard'
+import React, { useContext } from 'react'
 
-export const SearchResults = () => {
+import CarContext from '../context/car/CarContext'
+
+import Car from './Car'
+
+const SearchResults = () => {
+    // init Context ---------------------
+    const carContext = useContext(CarContext);
+    const { resArray, resStatus } = carContext;
     return (
-        <CarCard />
+        <>
+            {resArray.map((car, index) => {
+                return <Car car={car} key={index} />
+            })}
+        </>
     )
 }
+export default SearchResults;

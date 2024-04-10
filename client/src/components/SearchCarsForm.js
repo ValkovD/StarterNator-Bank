@@ -40,6 +40,7 @@ export const SearchCarsForm = () => {
       // validated={validated}
       onSubmit={handleSubmit}
       className="px-2"
+
     >
       <h2 className="text-center mt-3 mb-5">
         Search Cars
@@ -64,10 +65,6 @@ export const SearchCarsForm = () => {
             placeholder="Make"
           // value={make}
           />
-
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter First Name
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* ------------Model----------------- */}
@@ -88,9 +85,6 @@ export const SearchCarsForm = () => {
             placeholder="Model"
           // value={model}
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Surname
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* -----------------Year from---------------------------- */}
@@ -112,9 +106,6 @@ export const SearchCarsForm = () => {
             placeholder="From Year"
           // value={email}
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter Email
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* ------------------Year to--------------------------- */}
@@ -136,9 +127,6 @@ export const SearchCarsForm = () => {
             placeholder="To Year"
           // value={email}
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter Email
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* ----------------REG-------------------- */}
@@ -160,9 +148,6 @@ export const SearchCarsForm = () => {
             type="text"
             placeholder="Reg Number"
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter Password
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* -----------------Fuel------------------------------ */}
@@ -183,9 +168,6 @@ export const SearchCarsForm = () => {
             type="text"
             placeholder="fuel type"
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter Password
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* -----------------Fault------------------------------ */}
@@ -206,9 +188,6 @@ export const SearchCarsForm = () => {
             type="text"
             placeholder="Fault"
           />
-          {/* <Form.Control.Feedback type="invalid">
-            Please Enter Password
-          </Form.Control.Feedback> */}
         </Form.Group>
       </Row>
       {/* <Row className="justify-content-md-center"> */}

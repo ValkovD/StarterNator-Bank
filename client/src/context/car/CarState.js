@@ -9,13 +9,16 @@ import {
   CAR_SUBMIT_FAIL,
   CLEAR_CAR_STATE,
   CAR_SEARCH_SUCCESS,
-  CAR_SEARCH_FAIL
+  CAR_SEARCH_FAIL,
+  CAR_DELETE_SUCCESS,
+  CAR_DELETE_FAIL
 } from "../types";
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const CarState = (props) => {
   const initialState = {
     resArray: [],
     resStatus: null,
+    deletedCarId: "",
   };
   const userContext = useContext(UserContext);
   const { token } = userContext;
@@ -24,7 +27,7 @@ const CarState = (props) => {
   const { setAlert, closeAlert } = alertContext;
   const [state, dispatch] = useReducer(CarReducer, initialState);
 
-  // Post car to database==============================
+  // SUBMIT car to database==============================
   const submitCar = async (data) => {
     try {
       const config = {
@@ -45,7 +48,7 @@ const CarState = (props) => {
     }
   };
 
-  // Search Cars =============================================
+  // SEARCH Cars =============================================
   const searchCars = async (searchData) => {
 
     try {
@@ -79,9 +82,25 @@ const CarState = (props) => {
       // console.log("ERROR", err.response.data);
     }
   };
+  // DELETE CAR===============================
+  const deleteCar = async (carId) => {
+    try {
+      const config = {
+        headers: { "x-auth-token": token },
+      };
+      const res = await axios.delete(`http://localhost:4000/api/cars/delete/${carId}`, config);
+
+      dispatch({ type: CAR_DELETE_SUCCESS, payload: res });
+      console.log("res", res.data)
+
+    } catch (err) {
+      dispatch({ type: CAR_DELETE_FAIL, payload: err.response });
+      console.log("ERROR", err.response.data)
+    }
+  };
 
   // ===================================================//
-  // Clear car state TO DO
+  // CLEAR car state TO DO
   const clearCarState = (delay) => {
     setTimeout(() => {
       dispatch({ type: CLEAR_CAR_STATE });
@@ -96,8 +115,10 @@ const CarState = (props) => {
         submitCar,
         searchCars,
         clearCarState,
+        deleteCar,
         resArray: state.resArray,
         resStatus: state.resStatus,
+        deletedCarId: state.deletedCarId
       }}
     >
       {props.children}

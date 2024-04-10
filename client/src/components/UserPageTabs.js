@@ -7,7 +7,12 @@ import { SearchCarsForm } from "./SearchCarsForm";
 import SubmitCar from "./SubmitCar";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-import { SearchResults } from "./SearchResults";
+import AlertDism from "./AlertDism";
+
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import SearchResults from "./SearchResults";
+
 const UserPageTabs = () => {
   return (
     <Tabs
@@ -19,11 +24,13 @@ const UserPageTabs = () => {
 
       {/* --------------Search Tab------------------- */}
       <Tab eventKey="search" title="Search">
-        {/* content for Search
-        <p>Comming soon ......</p> */}
         <Row className="m-3">
-          <Col ><SearchCarsForm /></Col>
-          <Col><SearchResults /></Col>
+          <Col sm={12} md={6}>
+            <SearchCarsForm />
+          </Col>
+          <Col sm={12} md={6}>
+            <SearchResults />
+          </Col>
         </Row>
 
 
@@ -31,6 +38,7 @@ const UserPageTabs = () => {
       {/* ---------------Submit Tab------------------ */}
 
       <Tab eventKey="submit" title="Submit" className="p-2">
+        <AlertDism />
         <SubmitCar />
       </Tab>
       {/* ---------------About Tab--------------------- */}

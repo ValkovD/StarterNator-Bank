@@ -85,7 +85,7 @@ async function deleteCar(req, res) {
         .json({ msg: "Car id not found in database no such id found" });
     }
     let delCar = await Car.findByIdAndRemove(carTodelete);
-    return res.status(200).json([{ msg: `Car with id ${delCar._id} deleted` }]);
+    return res.status(200).json([{ msg: `Car with id ${delCar.make} ${delCar.model} deleted`, id: delCar._id }]);
   } catch (error) {
     console.error(error.message);
     res.status(500).json([{ msg: "Server error" }]);

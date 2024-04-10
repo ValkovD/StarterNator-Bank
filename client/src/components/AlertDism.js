@@ -20,23 +20,16 @@ function AlertDism() {
   return (
     <>
       <Alert show={showAlert} variant={alertVariant}>
-        {/* {alertMsg ? <Alert.Heading>{alertMsg}</Alert.Heading> : null} */}
         {resArray
           ? resArray.map((error, index) => {
-              return <Alert.Heading key={index}>{error.msg}</Alert.Heading>;
-            })
+            return <Alert.Heading key={index}>{error.msg}</Alert.Heading>;
+          })
           : null}
         {passMsg ? <Alert.Heading>{passMsg}</Alert.Heading> : null}
-        {/* <p>{alertMsg}</p> */}
         <hr />
         <div className="d-flex justify-content-end">
-          {/* <Button onClick={closeAlert} variant={`outline-${alertVariant}`}>
-            Close me
-          </Button> */}
         </div>
       </Alert>
-
-      {/* {!show && <Button onClick={() => setShow(true)}>Show Alert</Button>} */}
     </>
   );
 }
