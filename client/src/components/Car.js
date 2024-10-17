@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
@@ -8,46 +8,38 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
 
 import CarContext from '../context/car/CarContext';
+import ModalContext from '../context/modal/ModalContext';
+import DeleteCarModal from "./DeleteCarModal";
+import EditCarModal from './modals/EditCarModal';
 
 const Car = (props) => {
-    // Modal state =========================
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     // Init context=========================
+    // car
     const carContext = useContext(CarContext);
     const { resStatus, deleteCar } = carContext;
+    // modal
+    const modalContext = useContext(ModalContext);
+    const { openDeleteModal, openEditModal } = modalContext;
     // =====================================
-    const handleDelete = (e) => {
-        console.log("target from Car.js", e.target.id)
-        deleteCar(e.target.id)
-        handleClose()
-    };
+    const del = (e) => { openDeleteModal(e.target.id) };
+    const edit = (e) => { openEditModal(e.target.id) }
+    // const handleDelete = (e) => {
+    //     console.log("target from Car.js", e.target.id)
+    //     deleteCar(e.target.id)
+    //     handleClose()
+    // };
     // props from CarsResult.js
     const { car, index } = props;
 
     if (resStatus === 200) {
         return (
-
             <Accordion key={index} >
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>ARE YOU SURE ???</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>{`You will delete ${car.make} ${car.model}`}</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="dark" onClick={handleClose}>
-                            CANCEL
-                        </Button>
-                        <Button id={car._id} variant="danger" onClick={handleDelete}>
-                            DELETE
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                {/* Confirmation MODALS======================== */}
+                <DeleteCarModal />
+                <EditCarModal />
+                {/* ============================================= */}
                 <Accordion.Header>
                     <Container>
                         <Row>
@@ -60,19 +52,22 @@ const Car = (props) => {
                             </Col>
                             <Col sm={3} md={6} lg={3} className='mb-1' >
                                 <Button
-                                    onClick={handleShow}
+                                    id={car._id}
+                                    onClick={del}
                                     variant="secondary"
                                     size='sm'>Delete
                                 </Button>
                             </Col>
                             <Col sm={3} md={6} lg={3} >
-                                <Button size='sm' variant="dark" >Edit</Button>
+                                <Button
+                                    id={car._id}
+                                    onClick={edit}
+                                    size='sm'
+                                    variant="dark"
+                                >Edit</Button>
                             </Col>
                         </Row>
                     </Container>
-
-
-
 
                 </Accordion.Header >
                 <Card >

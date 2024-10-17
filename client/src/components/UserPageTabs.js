@@ -13,6 +13,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import SearchResults from "./SearchResults";
 
+
 const UserPageTabs = () => {
   return (
     <Tabs

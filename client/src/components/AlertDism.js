@@ -8,14 +8,6 @@ function AlertDism() {
   // const [showAlert, setShowAlert] = useState(false);
   const alertContext = useContext(AlertContext);
   const { alertVariant, showAlert, passMsg, resArray } = alertContext;
-  // const userContext = useContext(UserContext);
-  // const { } = userContext;
-  // const carContext = useContext(CarContext);
-  // const { resArray } = carContext;
-  // const { loginEmail } = loginInput.email;
-  // if (resSuccess !== "") {
-  //   setAlert(resSuccess.status, resSuccess.data.msg);
-  // }
 
   return (
     <>

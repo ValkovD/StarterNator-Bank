@@ -5,6 +5,7 @@ import Router from "./routes/Router";
 import UserState from "./context/user/UserState";
 import AlertState from "./context/alert/AlertState";
 import CarState from "./context/car/CarState";
+import ModalState from "./context/modal/ModalState";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
       <AlertState>
         <UserState>
           <CarState>
-            <RouterProvider router={Router} />
+            <ModalState>
+              <RouterProvider router={Router} />
+            </ModalState>
           </CarState>
         </UserState>
       </AlertState>
