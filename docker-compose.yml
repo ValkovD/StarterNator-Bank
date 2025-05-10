@@ -17,7 +17,7 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017/starternator
     expose:
-      - "5000"
+      - "4000"
     networks:
       - nginx_proxy_manager_default
     depends_on:
