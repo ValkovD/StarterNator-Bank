@@ -1,6 +1,5 @@
 const express = require("express");
-const config = require("config");
-
+require('dotenv').config()
 const connectMongoDb = require("./config/db");
 const usersRegRouter = require("./routes/usersReg.router");
 const usersLoginRouter = require("./routes/users.Login.router");
@@ -22,7 +21,7 @@ connectMongoDb();
 app.use(express.json());
 
 // Server listen
-const PORT = config.get("PORT") || 8000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}....`);
 });

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const config = require("config");
-
+require('dotenv').config()
+const SECRET = process.env.SECRET
 // middleware function that decodes the token payload
 // and assign it to the req header so it can be used to get user from db
 function authUser(req, res, next) {
@@ -11,7 +11,7 @@ function authUser(req, res, next) {
     return res.status(401).json([{ msg: "No token ccess DENIED !!!!" }]);
   }
   try {
-    const decoded = jwt.verify(token, config.get("SECRET"));
+    const decoded = jwt.verify(token, SECRET);
     req.userId = decoded.id;
     next();
   } catch (err) {

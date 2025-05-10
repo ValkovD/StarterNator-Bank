@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const config = require("config");
+require('dotenv').config()
 
-const db = config.get("MONGO_DB");
+const db = process.env.MONGO_DB;
 
 const connectMongoDb = async () => {
   try {
     await mongoose.connect(db);
-    console.log("MongoDB Connected....");
+    console.log("@@@@@@@@@@@@@@@@-----MongoDB Connected....@@@@@@@@@@@@@");
   } catch (err) {
     console.error(err.message);
     // to stop the server
