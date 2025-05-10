@@ -55,7 +55,7 @@ const LoginForm = () => {
         setLoginData({ ...loginData, validated: true })
       );
     }
-    e.preventDefault(email);
+    e.preventDefault();
     // real actions
     setLoginData({ ...loginData, validated: true });
     loginUser(loginData);
