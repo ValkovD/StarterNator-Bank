@@ -34,7 +34,7 @@ const CarState = (props) => {
         headers: { "x-auth-token": token },
       };
       const res = await axios.post(
-        "http://localhost:4000/api/cars",
+        "/api/cars",
         data,
         config
       );
@@ -72,7 +72,7 @@ const CarState = (props) => {
       };
       // console.log("config", config);
       const res = await axios.get(
-        `http://localhost:4000/api/cars/search?${queryString}`,
+        `/api/cars/search?${queryString}`,
         config
       );
       dispatch({ type: CAR_SEARCH_SUCCESS, payload: res });
@@ -88,7 +88,7 @@ const CarState = (props) => {
       const config = {
         headers: { "x-auth-token": token },
       };
-      const res = await axios.delete(`http://localhost:4000/api/cars/delete/${carId}`, config);
+      const res = await axios.delete(`/api/cars/delete/${carId}`, config);
 
       dispatch({ type: CAR_DELETE_SUCCESS, payload: res });
       console.log("res", res.data)

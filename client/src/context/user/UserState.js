@@ -38,7 +38,7 @@ const UserState = (props) => {
   // 3.Register User---------------------------------------
   const registerUser = async (userData) => {
     try {
-      const res = await axios.post("http://127.0.0.1:4000/api/users", userData);
+      const res = await axios.post("/api/users", userData);
       // console.log(res);
       dispatch({
         type: REGISTER_SUCCESS,
@@ -57,7 +57,7 @@ const UserState = (props) => {
   // 6. Login user-----------------------------------------------
   const loginUser = async (userData) => {
     try {
-      const res = await axios.post("http://localhost:4000/api/auth", userData);
+      const res = await axios.post("/api/auth", userData);
       // console.log(res);
       dispatch({
         type: LOGIN_SUCCESS,
@@ -77,7 +77,7 @@ const UserState = (props) => {
       const config = {
         headers: { "x-auth-token": token },
       };
-      const res = await axios.get("http://localhost:4000/api/auth", config);
+      const res = await axios.get("/api/auth", config);
       // console.log(res);
       dispatch({ type: AUTH_SUCCESS, payload: res });
     } catch (err) {
