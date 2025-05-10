@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - nginx_proxy_manager_default
+
+  backend:
+    build: ./server
+    container_name: backend
+    restart: always
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/starternator
+    expose:
+      - "5000"
+    networks:
+      - nginx_proxy_manager_default
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./client
+    container_name: frontend
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - nginx_proxy_manager_default
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
+
+
+networks:
+  nginx_proxy_manager_default:
+    external: true
