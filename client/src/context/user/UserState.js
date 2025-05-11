@@ -26,9 +26,6 @@ const initialState = {
 };
 const UserState = (props) => {
   useEffect(() => {
-    if (initialState.token === null) {
-      localStorage.clear()
-    }
     authUser(initialState.token);
   }, [initialState.token]);
   // initial state
@@ -75,6 +72,10 @@ const UserState = (props) => {
   };
   // AUTH user
   const authUser = async (token) => {
+    if (token === null) {
+      dispatch({ type: AUTH_FAIL })
+      return
+    }
     try {
       // console.log(`authUser called token:${token}`);
       const config = {
