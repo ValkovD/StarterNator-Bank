@@ -26,6 +26,9 @@ const initialState = {
 };
 const UserState = (props) => {
   useEffect(() => {
+    if (initialState.token === null) {
+      localStorage.clear()
+    }
     authUser(initialState.token);
   }, [initialState.token]);
   // initial state
