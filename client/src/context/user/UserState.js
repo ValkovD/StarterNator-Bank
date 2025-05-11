@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import axios from "axios";
+import axios, { isAxiosError } from "axios";
 import UserContext from "./UserContext";
 import UserReducer from "./UserReducer";
 import {
@@ -26,7 +26,7 @@ const initialState = {
 };
 const UserState = (props) => {
   useEffect(() => {
-    authUser(localStorage.getItem("token"));
+    authUser(initialState.token);
   }, [initialState.token]);
   // initial state
 
