@@ -25,9 +25,9 @@ const initialState = {
   token: localStorage.getItem("token"),
 };
 const UserState = (props) => {
-  useEffect(() => {
-    authUser(initialState.token);
-  }, [initialState.token]);
+  // useEffect(() => {
+  //   authUser(initialState.token);
+  // }, [initialState.token]);
   // initial state
 
   // useReducer hook dispatches state to UserReducer.js
