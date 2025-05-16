@@ -10,8 +10,10 @@ const app = express();
 // CORS Origin WHitelisting-------------------------
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://192.168.0.12:3000"],
+    // origin: ["http://localhost:3000", "http://192.168.0.12:3000"],
     // origin: "*",
+    origin: ['https://starternator.pdeit.com'],
+    credentials: true
   })
 );
 // --------------------------------------------------

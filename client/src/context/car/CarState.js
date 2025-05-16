@@ -34,7 +34,7 @@ const CarState = (props) => {
         headers: { "x-auth-token": token },
       };
       const res = await axios.post(
-        "/api/cars",
+        "https://api.starternator.pdeit.com/api/cars",
         data,
         config
       );
@@ -72,7 +72,7 @@ const CarState = (props) => {
       };
       // console.log("config", config);
       const res = await axios.get(
-        `/api/cars/search?${queryString}`,
+        `https://api.starternator.pdeit.com/api/cars/search?${queryString}`,
         config
       );
       dispatch({ type: CAR_SEARCH_SUCCESS, payload: res });
@@ -88,7 +88,7 @@ const CarState = (props) => {
       const config = {
         headers: { "x-auth-token": token },
       };
-      const res = await axios.delete(`/api/cars/delete/${carId}`, config);
+      const res = await axios.delete(`https://api.starternator.pdeit.com/api/cars/delete/${carId}`, config);
 
       dispatch({ type: CAR_DELETE_SUCCESS, payload: res });
       console.log("res", res.data)
