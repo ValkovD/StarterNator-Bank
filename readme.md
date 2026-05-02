@@ -1,6 +1,8 @@
-## Full-Stack Banking Application & VPS Infrastructure
+## Full-Stack Application & VPS Infrastructure
 
 Modern full-stack web application built and deployed entirely by myself using the MERN stack and self-managed VPS infrastructure.
+
+Main goal of this app is data collection by breakdown patrols attending live jobs on the roadside. The initial version of the app includes options for two fault types: starter motor and alternator. The original idea was for this data to be used to assist a business that deals with repairing and reconditioning starters and alternators. More fault types can be added in the future.
 
 The project was developed with a complete separation between frontend and backend architecture. The frontend was created using React with Bootstrap for a responsive and clean user interface, while the backend was built with Node.js and Express.js to provide REST API functionality, application logic, authentication handling, and database communication. MongoDB is used as the primary database solution, running inside its own Docker container for better isolation and management.
 
