@@ -1,35 +1,138 @@
-## Full-Stack Application & VPS Infrastructure
+# StarterNator Bank
 
-Modern full-stack web application built and deployed entirely by myself using the MERN stack and self-managed VPS infrastructure.
+Production-style full-stack roadside patrol management platform designed for field data collection, incident reporting, and operational workflow tracking.
 
-Main goal of this app is data collection by breakdown patrols attending live jobs on the roadside. The initial version of the app includes options for two fault types: starter motor and alternator. The original idea was for this data to be used to assist a business that deals with repairing and reconditioning starters and alternators. More fault types can be added in the future.
+Built with React, Node.js, Express, MongoDB and Docker.
 
-The project was developed with a complete separation between frontend and backend architecture. The frontend was created using React with Bootstrap for a responsive and clean user interface, while the backend was built with Node.js and Express.js to provide REST API functionality, application logic, authentication handling, and database communication. MongoDB is used as the primary database solution, running inside its own Docker container for better isolation and management.
+## Live Demo
 
-Beyond the application development itself, the project demonstrates strong understanding of production deployment, containerization, and server administration. Both the frontend and backend applications are fully containerized using Docker and deployed through Portainer on a self-managed VPS environment. Custom subdomains were configured for the services, while Nginx Proxy Manager was used to handle reverse proxy routing, HTTPS configuration, and secure external access to the hosted applications.
+https://starterinator.pdeit.com
 
-The entire infrastructure, deployment pipeline, networking configuration, and server management were independently configured and maintained solely by myself.
+## Features
 
-## Technical Skills Demonstrated
+- Secure JWT Authentication
+- Roadside Patrol Incident Reporting
+- Field Data Collection Workflows
+- REST API Architecture
+- Responsive Operations Dashboard
+- Protected Route System
+- MongoDB Data Modeling
+- Dockerized Full-Stack Deployment
+- VPS Hosting with Nginx Reverse Proxy
+- Modular Frontend Component Architecture
 
-- Full-stack MERN development
-- React frontend architecture
-- Bootstrap responsive UI development
-- Node.js and Express.js backend development
-- REST API architecture
-- MongoDB database integration
+## Tech Stack
+
+### Frontend
+- React
+- Tailwind CSS
+- Axios
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+### DevOps & Deployment
+- Docker
+- Docker Compose
+- Ubuntu VPS
+- Nginx
+- SSL
+
+## Architecture
+
+The application follows a modern client-server architecture:
+
+- React frontend dashboard
+- Express REST API backend
+- MongoDB database layer
+- JWT-based authentication
 - Docker containerization
-- Portainer container management
-- VPS server administration
-- Linux command line operations
-- Reverse proxy and domain configuration
-- Nginx Proxy Manager setup
-- Production deployment workflows
+- VPS deployment with Nginx reverse proxy
+
+## Use Case
+
+StarterNator is designed to support roadside patrol teams by simplifying operational reporting workflows and field data collection.
+
+The platform enables patrol operators to:
+- submit incident reports
+- track operational activities
+- manage roadside assistance workflows
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4d3f88e1-af3e-4cb8-a3b2-74facb9094dc" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2ff73605-fbc6-4185-9a5e-92a691bbc34e" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ef2b8543-76ad-47f6-960f-9dce2a2a0adc" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f4f80640-362f-4212-b459-7d1885838cb2" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0be6bda7-3879-437f-89b1-5995dbfbebe5" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b729029e-1db8-4096-9665-e886702b0718" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b0d06461-7569-4323-812a-72f5e54445d6" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ee166a5e-76c0-42d4-a089-c433006e81df" width="1020" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/094ddefd-c69e-4811-bda8-f7e16fdb1007" width="1020" />
+</p>
+
+## Project Structure
+
+/client      -> React frontend
+/server      -> Express backend
+/nginx       -> Reverse proxy configuration
+/docker      -> Container setup
+- collect structured field data in real time
+
+ ## Local Setup
+
+### Clone repository
+
+git clone https://github.com/ValkovD/StarterNator-Bank.git
+
+### Install dependencies
+
+npm install
+
+### Run with Docker
+
+docker compose up
+
+## Production Deployment
+
+The platform is deployed using:
+
+- Docker containers
+- Ubuntu VPS hosting
+- Nginx reverse proxy
+- SSL configuration
 - Environment variable management
-- Git and version control workflows
 
-## Project Outcome
+## Future Improvements
 
-This project demonstrates the ability to independently design, develop, deploy, and maintain a complete production-ready web application and server infrastructure. It highlights both software engineering and DevOps skills, including backend architecture, frontend development, container orchestration, networking, reverse proxy management, and VPS administration.
-
-## Visit the App at: https://starternator.pdeit.com/
+- Real-time patrol activity updates
+- GPS-based incident tracking
+- Role-based access management
+- Analytics dashboard
+- Exportable operational reports
